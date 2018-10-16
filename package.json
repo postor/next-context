@@ -1,0 +1,29 @@
+{
+  "name": "next-context",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/postor/next-context.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/postor/next-context/issues"
+  },
+  "homepage": "https://github.com/postor/next-context#readme",
+  "dependencies": {
+    "lodash.isfunction": "^3.0.9",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
+  },
+  "devDependencies": {
+    "next": "^7.0.2"
+  }
+}
