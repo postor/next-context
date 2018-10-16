@@ -1,5 +1,7 @@
 import { Component, createContext } from 'react'
 import isFunction from 'lodash.isfunction'
+export { default as AdapterGlobal } from './persist-adapter/PersistAdapter'
+export { default as AdapterLocalStorage } from './persist-adapter/LocalStorage'
 
 export default (defaultState = {}, config = {}) => {
 
