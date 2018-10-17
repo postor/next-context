@@ -1,10 +1,11 @@
 {
-  "name": "next-context",
+  "name": "next-context-store",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "use new context api as store | 使用新的context api做数据仓库",
+  "main": "dist/index.js",
   "scripts": {
     "dev": "next dev",
+    "build": "babel src -d dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,6 +25,13 @@
     "react-dom": "^16.5.2"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-runtime": "^6.26.0",
     "next": "^7.0.2"
   }
 }
