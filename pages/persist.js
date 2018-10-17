@@ -1,4 +1,4 @@
-import createContext from '../src/index'
+import { default as createContext, AdapterLocalStorage } from '../src/index'
 
 const { Provider, Consumer } = createContext({
   data: { count: 0 },
@@ -10,6 +10,7 @@ const { Provider, Consumer } = createContext({
       this.count--
     },
   },
+  persist: new AdapterLocalStorage('testkey'),
 })
 
 export default () => (<Provider>
@@ -20,4 +21,5 @@ export default () => (<Provider>
       <button onClick={methods.add}>+</button>
     </p>)
   }}</Consumer>
+  <p>refresh and data will persist|刷新后数据会保持</p>
 </Provider>)

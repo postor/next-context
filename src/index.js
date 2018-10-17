@@ -3,43 +3,35 @@ import isFunction from 'lodash.isfunction'
 export { default as AdapterGlobal } from './persist-adapter/PersistAdapter'
 export { default as AdapterLocalStorage } from './persist-adapter/LocalStorage'
 
-export default (defaultState = {}, config = {}) => {
+export default (config = {}) => {
 
-  const { calculateChangedBits } = config
-  const functions = {}
-  const states = {}
+  const { data, methods, calculateChangedBits, persist } = config
 
   const context = createContext({}, calculateChangedBits)
   const { Provider, Consumer } = context
 
-  Object.keys(defaultState).forEach(x => {
-    if (isFunction(defaultState[x])) {
-      functions[x] = defaultState[x]
-      return
-    }
-    states[x] = defaultState[x]
-  })
-
-
   class StoreComponent extends Component {
-    state = states
-    functions = {}
+    state = getDefaultState()
+    methods = {}
 
     constructor(props) {
       super(props)
-      Object.keys(functions).forEach(x => {
-        this.functions[x] = (...args) => {
+      Object.keys(methods).forEach(x => {
+        this.methods[x] = (...args) => {
           const state = { ...this.state }
-          functions[x].apply(state, args)
+          methods[x].apply(state, args)
           this.setState(state)
+          if (persist) {
+            persist.set(state)
+          }
         }
       })
     }
 
     render() {
       return (<Provider value={{
-        ...this.state,
-        ...this.functions,
+        data: this.state,
+        methods: this.methods,
       }}>{this.props.children}</Provider>)
     }
   }
@@ -48,5 +40,19 @@ export default (defaultState = {}, config = {}) => {
     context,
     Provider: StoreComponent,
     Consumer,
+  }
+
+  function getDefaultState() {
+    if (persist) {
+      const val = persist.get()
+      if (val) {
+        return val
+      }
+    }
+    const val = isFunction(data) ? data() : data
+    if (persist) {
+      persist.set(val)
+    }
+    return val
   }
 }

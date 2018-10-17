@@ -13,20 +13,23 @@ use new context api as store
 import createContext from 'react-context-store'
 
 const { Provider, Consumer } = createContext({
-  count: 0,
-  add: function () {
-    this.count++
-  }, sub: function () {
-    this.count--
-  }
+  data: { count: 0 },
+  methods: {
+    add: function () {
+      this.count++
+    },
+    sub: function () {
+      this.count--
+    },
+  },
 })
 
 export default () => (<Provider>
-  <Consumer>{({ count, add, sub }) => {
+  <Consumer>{({ data, methods }) => {
     return (<p>
-      <a onClick={sub}>-</a>
-      <span>{count}</span>
-      <a onClick={add}>+</a>
+      <button onClick={methods.sub}>-</button>
+      <span>{data.count}</span>
+      <button onClick={methods.add}>+</button>
     </p>)
   }}</Consumer>
 </Provider>)
@@ -37,6 +40,22 @@ export default () => (<Provider>
 
 ### persist store data
 
+```
+import { default as createContext, AdapterLocalStorage } from '../src/index'
+
+const { Provider, Consumer } = createContext({
+  data: { count: 0 },
+  methods: {
+    add: function () {
+      this.count++
+    },
+    sub: function () {
+      this.count--
+    },
+  },
+  persist: new AdapterLocalStorage('testkey'),
+})
+```
 
 
 ### use `calculateChangedBits` and `unstable_observedBits`

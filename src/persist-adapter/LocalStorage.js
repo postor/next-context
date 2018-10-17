@@ -2,9 +2,10 @@ import PersistAdapter from './PersistAdapter'
 import isServer from './is-server'
 const PRIFIX = 'PersistAdapter_'
 
-export class LocalStorage extends PersistAdapter {
+export default class LocalStorage extends PersistAdapter {
+
   constructor(key) {
-    this.key = `${PRIFIX}${key}`
+    super(key)
   }
 
   set(item = {}) {

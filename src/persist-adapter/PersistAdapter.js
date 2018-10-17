@@ -2,6 +2,9 @@ import isServer from './is-server'
 const PRIFIX = 'PersistAdapter_'
 
 export default class PersistAdapter {
+  key
+  item
+  
   constructor(key) {
     this.key = `${PRIFIX}${key}`
   }
