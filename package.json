@@ -1,37 +1,36 @@
 {
-  "name": "next-context-store",
-  "version": "1.0.0",
+  "name": "react-context-store",
+  "version": "1.0.1",
   "description": "use new context api as store | 使用新的context api做数据仓库",
   "main": "dist/index.js",
   "scripts": {
     "dev": "next dev",
-    "build": "babel src -d dist",
+    "build": "babel src -d dist --config-file=./babel.lib.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/postor/next-context.git"
+    "url": "git+https://github.com/postor/react-context-store.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/postor/next-context/issues"
+    "url": "https://github.com/postor/react-context-store/issues"
   },
-  "homepage": "https://github.com/postor/next-context#readme",
+  "homepage": "https://github.com/postor/react-context-store#readme",
   "dependencies": {
     "lodash.isfunction": "^3.0.9",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-plugin-transform-react-jsx": "^6.24.1",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-2": "^6.24.1",
-    "babel-runtime": "^6.26.0",
-    "next": "^7.0.2"
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-transform-react-jsx": "^7.7.7",
+    "@babel/plugin-transform-runtime": "^7.7.6",
+    "@babel/preset-env": "^7.7.7",
+    "next": "^9.1.6"
   }
 }

@@ -5,7 +5,7 @@ export { default as AdapterLocalStorage } from './persist-adapter/LocalStorage'
 
 export default (config = {}) => {
 
-  const { data, methods, calculateChangedBits, persist } = config
+  const { data, methods = {}, reducer, calculateChangedBits, persist } = config
 
   const context = createContext({}, calculateChangedBits)
   const { Provider, Consumer } = context
@@ -13,6 +13,7 @@ export default (config = {}) => {
   class StoreComponent extends Component {
     state = getDefaultState()
     methods = {}
+    reducer = reducer
 
     constructor(props) {
       super(props)
@@ -32,7 +33,13 @@ export default (config = {}) => {
       return (<Provider value={{
         data: this.state,
         methods: this.methods,
+        dispatch: this.dispatch.bind(this),
       }}>{this.props.children}</Provider>)
+    }
+
+    dispatch(action) {
+      const newState = this.reducer(this.state, action)
+      this.setState(newState)
     }
   }
 
