@@ -1,5 +1,5 @@
 {
-  "name": "react-context-store",
+  "name": "next-context-store",
   "version": "1.0.1",
   "description": "use new context api as store | 使用新的context api做数据仓库",
   "main": "dist/index.js",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/postor/react-context-store.git"
+    "url": "git+https://github.com/postor/next-context-store.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/postor/react-context-store/issues"
+    "url": "https://github.com/postor/next-context-store/issues"
   },
-  "homepage": "https://github.com/postor/react-context-store#readme",
+  "homepage": "https://github.com/postor/next-context-store#readme",
   "dependencies": {
     "lodash.isfunction": "^3.0.9",
     "react": "^16.12.0",

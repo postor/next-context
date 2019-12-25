@@ -1,4 +1,4 @@
-# react-context-store
+# next-context-store
 
 use new context api as store | 使用新的context api做数据仓库
 
@@ -16,7 +16,7 @@ so I start this, for at times I need small stores to hold shered data cross comp
 ## basic useage | 基础使用
 
 ```
-import createContext from 'react-context-store'
+import createContext from 'next-context-store'
 
 const { Provider, Consumer } = createContext({
   data: { count: 0 }, // data or function that returns data | 仓库数据，或者返回仓库数据的函数
