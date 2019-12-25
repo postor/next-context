@@ -1,4 +1,4 @@
-import createContext from '../../dist'
+import createContext from 'next-context-store'
 
 export const { Provider, Consumer } = createContext({
   data: { count: 0 },
