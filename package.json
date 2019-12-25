@@ -1,6 +1,6 @@
 {
   "name": "next-context-store",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "use new context api as store | 使用新的context api做数据仓库",
   "main": "dist/index.js",
   "scripts": {
