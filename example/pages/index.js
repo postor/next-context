@@ -1,5 +1,5 @@
 import { Provider, Consumer } from '../comps/ctx1'
-
+import Nested from '../comps/Nested'
 
 export default () => (<Provider>
   <Consumer>{({ data, methods }) => {
@@ -11,4 +11,5 @@ export default () => (<Provider>
       <button onClick={methods.add}>+</button>
     </p>)
   }}</Consumer>
+  <Nested />
 </Provider>)
